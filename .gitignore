@@ -53,3 +53,7 @@
 
 # Ignore .env file
 .env
+
+# ignore lock files
+composer.lock
+symfony.lock
