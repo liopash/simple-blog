@@ -2,9 +2,13 @@
 
 {% block body %}
 
-<div class="container">
-    <p class="avatar"><a href="/authors">{{ author.avatar }}</a></p>
-    <p class="grayout"> {{ author.createdAt|date('d M Y')}} </p>
-    <p>{{ author.email|split('@')|first }}</p>
-</div>
+	<div class="container">
+		<p class="avatar">
+			<a href="/authors">{{ author.avatar }}</a>
+		</p>
+		<p class="grayout">
+			{{ author.createdAt|date('d M Y')}}
+		</p>
+		<p>{{ author.email|split('@')|first }}</p>
+	</div>
 {% endblock %}

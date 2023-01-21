@@ -1,16 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} Comments {% endblock %}
+{% block title %}
+	Comments
+{% endblock %}
 
 {% block body %}
-    {% for comment in comments %}
-        <div class="container">
-            <p>{{ comment.content|length > 250 ? comment.content|slice(0, 250) ~ '...' : comment.content  }}</p>
-            <p>
-            <span class="grayout">{{ comment.createdAt|date('d M Y') }}</span>
-            {{ comment.author.email }} <span class="grayout">in</span> {{ comment.blog.title }}
-            </p>
-        </div>
-    {% endfor %}
+	{% for comment in comments %}
+		<div class="container">
+			<p>{{ comment.content|length > 250 ? comment.content|slice(0, 250) ~ '...' : comment.content  }}</p>
+			<p>
+				<span class="grayout">{{ comment.createdAt|date('d M Y') }}</span>
+				{{ comment.author.email }}
+				<span class="grayout">in</span>
+				{{ comment.blog.title }}
+			</p>
+		</div>
+	{% endfor %}
 
 {% endblock %}

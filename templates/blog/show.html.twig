@@ -1,29 +1,33 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} Blog - {{ blog.title }} {% endblock %}
+{% block title %}
+	Blog -
+	{{ blog.title }}
+{% endblock %}
 
 {% block body %}
-        <div class="container">
-            <h2>{{ blog.title }}</h2>
-            <p style="white-space: pre-line">{{ blog.content }}</p>
-            <p>
-            <span class="grayout">{{ blog.createdAt|date('d M Y') }}</span>
-            {{ blog.author.email }}
-            </p>
-            <p>
-            </p>
-            <h4>Add comment</h4>
-            {{ form(form) }}
-            <h4>Comments</h4>
-            {% for comment in comments %}
-                <div class="comment">
-                    <p>
-                        <span class="grayout">{{ comment.createdAt|date('d M Y') }}</span>
-                        {{ comment.author.email }}
-                    </p>
-                    <p style="white-space: pre-line">{{ comment.content }}</p>
-                </div>
-            {% endfor %}
-            <span class="grayout"> {{ knp_pagination_render(comments) }} </span>
-        </div>
-{% endblock %}
+	<div class="container">
+		<h2>{{ blog.title }}</h2>
+		<p style="white-space: pre-line">{{ blog.content }}</p>
+		<p>
+			<span class="grayout">{{ blog.createdAt|date('d M Y') }}</span>
+			{{ blog.author.email }}
+		</p>
+		<p></p>
+		<h4>Add comment</h4>
+		{{ form(form) }}
+			<h4>Comments</h4>
+			{% for comment in comments %}
+				<div class="comment">
+					<p>
+						<span class="grayout">{{ comment.createdAt|date('d M Y') }}</span>
+						{{ comment.author.email }}
+					</p>
+					<p style="white-space: pre-line">{{ comment.content }}</p>
+				</div>
+			{% endfor %}
+			<span class="grayout">
+				{{ knp_pagination_render(comments) }}
+			</span>
+		</div>
+	{% endblock %}

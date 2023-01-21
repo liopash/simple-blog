@@ -2,13 +2,15 @@
 
 {% block body %}
 
-<div class="container">
-    {% for author in authors %}
-    <p>
-    {{ author.avatar }}
-    <a href="/author/{{author.id}}">{{ author.email }}</a>
-    <span class="grayout"> {{ author.createdAt|date('d M Y')}} </span>
-    </p>
-    {% endfor %}
-</div>
+	<div class="container">
+		{% for author in authors %}
+			<p>
+				{{ author.avatar }}
+				<a href="/author/{{author.id}}">{{ author.email }}</a>
+				<span class="grayout">
+					{{ author.createdAt|date('d M Y')}}
+				</span>
+			</p>
+		{% endfor %}
+	</div>
 {% endblock %}
