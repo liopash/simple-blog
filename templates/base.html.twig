@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+            <style>
+                .container {
+                    align-items: center;
+                    justify-content: center;
+                    width: 80%;
+                    font: 18px/1.5 sans-serif;
+                    padding: 10px;
+                    margin: 1rem;
+                }
+                .comment {
+                    border: 1px dotted #ccc;
+                    border-radius: 5px;
+                    padding: 10px;
+                    margin: 10px;
+                    font: 14px/1.5 sans-serif;
+                }
+                .grayout { color: #999; font-style: italic; font: 12px/1.5 sans-serif;}
+                .avatar { width: 110px; height: 110px; border-radius: 50%; background-color: #fc6203; font: 5em sans-serif; text-align: center; margin: 0px; }
+                a { text-decoration: none; color: #999; }
+                a:hover { color: #000; }
+                hr { border: 0; border-top: 1px solid #ccc; }
+            </style>
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </head>
+    <body>
+        <div style="margin-top: 3em; margin-left: 2em; font-weight: bold; font: 18px/1.5 sans-serif;">
+        <a href="/blogs">blogs ·</a>
+        <a href="/authors">authors</a>
+        {# <a href="/comments"> · comments</a> #}
+        </div>
+        {% block body %}{% endblock %}
+    </body>
+</html>

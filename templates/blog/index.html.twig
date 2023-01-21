@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Blogs{% endblock %}
+
+{% block body %}
+    <div class="container">
+    <h4><a href="/blog/create">create new</a></h4>
+    {% for blog in pagination %}
+            <span class="grayout">{{ blog.createdAt|date('d M Y') }}</span>
+            <h2><a href="{{ path('app_blog_show', {'id': blog.id}) }}">{{ blog.title }}</a></h2>
+            <p>{{ blog.content|length > 250 ? blog.content|slice(0, 250) ~ '...' : blog.content  }}</p>
+            <p>
+            {{ blog.author.email }}
+            <p>{{ blog.comments|length > 0 ? blog.comments|length ~ ' comments' : 'No comments'  }}</p>
+            </p>
+            <hr>
+    {% endfor %}
+    {{ knp_pagination_render(pagination) }}
+    </div>
+{% endblock %}
